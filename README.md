@@ -18,6 +18,7 @@
 ---
 
 ## 📁 Project Structure (Clean Architecture)
+<pre>
 lib/
 ├── core/               # Constants, service locators, route configurations
 ├── data/               # Data layer: models, datasources, repository impl
@@ -35,7 +36,7 @@ lib/
 │   ├── pages/
 │   └── widgets/
 └── main.dart           # App entry point
-
+</pre>
 
 ---
 
