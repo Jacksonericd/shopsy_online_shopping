@@ -15,12 +15,13 @@ class ProductDetailPage extends StatelessWidget {
     final cartProvider = Provider.of<CartProvider>(context);
 
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(title: Text(product.productName)),
       body: Column(
         children: [
           CachedNetworkImageWidget(imageUrl: product.imageUrl, height: 200),
           Padding(
-            padding: const EdgeInsets.all(16.0),
+            padding: const EdgeInsets.all(24.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -42,11 +43,11 @@ class ProductDetailPage extends StatelessWidget {
                 ),
                 const SizedBox(height: 24),
                 Center(
-                  child: ElevatedButton(
+                  child: ElevatedButton.icon(
+                    icon: Icon(Icons.shopping_cart, color: Colors.white),
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.yellow,
+                      backgroundColor: Color(0xFFCE2041),
                       elevation: 0,
-                      textStyle: Theme.of(context).textTheme.titleMedium,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(12.0),
                       ),
@@ -59,7 +60,12 @@ class ProductDetailPage extends StatelessWidget {
                         ),
                       );
                     },
-                    child: const Text(StringConstants.addToCart),
+                    label: Text(
+                      StringConstants.addToCart,
+                      style: Theme.of(
+                        context,
+                      ).textTheme.titleMedium?.copyWith(color: Colors.white),
+                    ),
                   ),
                 ),
               ],
