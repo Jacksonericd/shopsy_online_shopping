@@ -5,6 +5,7 @@ import 'package:shopsy/core/constants/string_constants.dart';
 import 'package:shopsy/core/service_locator.dart';
 import 'package:shopsy/domain/services/navigation_service.dart';
 import '../providers/product_provider.dart';
+import '../widgets/cached_network_image_widget.dart';
 import 'cart_page.dart';
 import 'product_detail_page.dart';
 
@@ -63,7 +64,7 @@ class _ProductListPage extends StatelessWidget {
         final product = products[index];
 
         return ListTile(
-          leading: Image.network(product.imageUrl, height: 100, width: 100),
+          leading: CachedNetworkImageWidget(imageUrl: product.imageUrl, height: 100, width: 100),
           title: Text(product.productName),
           subtitle: Text('₹${product.price.toStringAsFixed(2)}'),
           onTap: () {

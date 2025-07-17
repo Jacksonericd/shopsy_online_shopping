@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shopsy/core/constants/string_constants.dart';
 import '../providers/cart_provider.dart';
+import '../widgets/cached_network_image_widget.dart';
 
 class CartPage extends StatefulWidget {
   const CartPage({super.key});
@@ -44,10 +45,10 @@ class _CartPageState extends State<CartPage> {
                   itemBuilder: (context, index) {
                     final product = cartItems[index];
                     return ListTile(
-                      leading: Image.network(
-                        product.imageUrl,
-                        width: 80,
+                      leading: CachedNetworkImageWidget(
+                        imageUrl: product.imageUrl,
                         height: 80,
+                        width: 80,
                       ),
                       title: Text(product.productName),
                       subtitle: Text('₹${product.price.toStringAsFixed(2)}'),

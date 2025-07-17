@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../domain/entities/product.dart';
 import '../providers/cart_provider.dart';
+import '../widgets/cached_network_image_widget.dart';
 
 class ProductDetailPage extends StatelessWidget {
   final Product product;
@@ -16,7 +17,7 @@ class ProductDetailPage extends StatelessWidget {
       appBar: AppBar(title: Text(product.productName)),
       body: Column(
         children: [
-          Image.network(product.imageUrl, height: 200),
+          CachedNetworkImageWidget(imageUrl: product.imageUrl, height: 200),
           Padding(
             padding: const EdgeInsets.all(16.0),
             child: Column(
