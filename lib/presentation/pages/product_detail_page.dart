@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:shopsy/core/constants/string_constants.dart';
 import '../../domain/entities/product.dart';
 import '../providers/cart_provider.dart';
+import '../widgets/add_cart_button.dart';
 import '../widgets/cached_network_image_widget.dart';
 
 class ProductDetailPage extends StatelessWidget {
@@ -32,7 +33,10 @@ class ProductDetailPage extends StatelessWidget {
                 const SizedBox(height: 20),
                 Text(
                   '₹${product.price}',
-                  style: Theme.of(context).textTheme.titleLarge,
+                  style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                    color: Color(0xFFCE2041),
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
                 const SizedBox(height: 25),
                 Text(
@@ -43,16 +47,8 @@ class ProductDetailPage extends StatelessWidget {
                 ),
                 const SizedBox(height: 24),
                 Center(
-                  child: ElevatedButton.icon(
-                    icon: Icon(Icons.shopping_cart, color: Colors.white),
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Color(0xFFCE2041),
-                      elevation: 0,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(12.0),
-                      ),
-                    ),
-                    onPressed: () {
+                  child: AddCartButton(
+                    onButtonPressed: () {
                       cartProvider.addToCart(product);
                       ScaffoldMessenger.of(context).showSnackBar(
                         const SnackBar(
@@ -60,12 +56,6 @@ class ProductDetailPage extends StatelessWidget {
                         ),
                       );
                     },
-                    label: Text(
-                      StringConstants.addToCart,
-                      style: Theme.of(
-                        context,
-                      ).textTheme.titleMedium?.copyWith(color: Colors.white),
-                    ),
                   ),
                 ),
               ],

@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:shopsy/core/constants/string_constants.dart';
 import '../providers/cart_provider.dart';
 import '../widgets/cached_network_image_widget.dart';
+import '../widgets/cart_item.dart';
 
 class CartPage extends StatefulWidget {
   const CartPage({super.key});
@@ -37,48 +38,50 @@ class _CartPageState extends State<CartPage> {
             return Center(child: Text(StringConstants.cartEmpty));
           }
 
-          return Column(
-            children: [
-              Expanded(
-                child: ListView.builder(
-                  itemCount: cartItems.length,
-                  itemBuilder: (context, index) {
-                    final product = cartItems[index];
-                    return ListTile(
-                      leading: CachedNetworkImageWidget(
-                        imageUrl: product.imageUrl,
-                        height: 80,
-                        width: 80,
-                      ),
-                      title: Text(product.productName),
-                      subtitle: Text('₹${product.price.toStringAsFixed(2)}'),
-                      trailing: IconButton(
-                        icon: const Icon(Icons.delete),
-                        onPressed: () {
-                          cartProvider.removeFromCart(product);
-                        },
-                      ),
-                    );
-                  },
+          return Padding(
+            padding: const EdgeInsets.all(12.0),
+            child: Column(
+              children: [
+                Expanded(
+                  child: ListView.builder(
+                    itemCount: cartItems.length,
+                    itemBuilder: (context, index) {
+                      final product = cartItems[index];
+                      return Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 2),
+                        child: CartItem(
+                          product: product,
+                          onRemoveClicked: () {
+                            cartProvider.removeFromCart(product);
+                          },
+                        ),
+                      );
+                    },
+                  ),
                 ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(16),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    const Text('Total:', style: TextStyle(fontSize: 18)),
-                    Text(
-                      '₹${cartProvider.totalPrice.toStringAsFixed(2)}',
-                      style: const TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                      ),
+                Card(
+                  color: Colors.white,
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          'Total:',
+                          style: Theme.of(context).textTheme.titleLarge
+                              ?.copyWith(fontWeight: FontWeight.bold),
+                        ),
+                        Text(
+                          '₹${cartProvider.totalPrice.toStringAsFixed(2)}',
+                          style: Theme.of(context).textTheme.titleLarge
+                              ?.copyWith(fontWeight: FontWeight.bold),
+                        ),
+                      ],
                     ),
-                  ],
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           );
         },
       ),
