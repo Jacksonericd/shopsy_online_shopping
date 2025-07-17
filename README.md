@@ -21,12 +21,12 @@
 <pre>
 lib/
 ├── core/               # Constants, service locators, route configurations
-├── data/               # Data layer: models, datasources, repository impl
+├── data/               # Data layer: models, datasources, repository impl, service impl
 │   ├── models/
 │   ├── datasources/
 │   ├── repositories/
 │   └── services/
-├── domain/             # Domain layer: entities, use cases, abstract repos
+├── domain/             # Domain layer: entities, use cases, abstract repos, abstract services
 │   ├── entities/
 │   ├── repositories/
 │   ├── usecases/
