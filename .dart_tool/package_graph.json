@@ -14,7 +14,8 @@
         "go_router",
         "json_annotation",
         "provider",
-        "shared_preferences"
+        "shared_preferences",
+        "shimmer_animation"
       ],
       "devDependencies": [
         "build_runner",
@@ -117,6 +118,13 @@
         "test_api",
         "vector_math",
         "vm_service"
+      ]
+    },
+    {
+      "name": "shimmer_animation",
+      "version": "2.2.2",
+      "dependencies": [
+        "flutter"
       ]
     },
     {

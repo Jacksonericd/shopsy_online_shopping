@@ -488,6 +488,12 @@
       "languageVersion": "3.5"
     },
     {
+      "name": "shimmer_animation",
+      "rootUri": "file:///Users/jacksondcosta/.pub-cache/hosted/pub.dev/shimmer_animation-2.2.2",
+      "packageUri": "lib/",
+      "languageVersion": "3.4"
+    },
+    {
       "name": "sky_engine",
       "rootUri": "file:///Users/jacksondcosta/flutter_sdk/flutter/bin/cache/pkg/sky_engine",
       "packageUri": "lib/",
