@@ -19,22 +19,22 @@
 
 ## 📁 Project Structure (Clean Architecture)
 lib/
-├── core/ # Constants, service locators, route configurations
-├── data/ # Data layer: models, datasources, repository impl
-│ ├── models/
-│ ├── datasources/
-│ ├── repositories/
-│ └── services/
-├── domain/ # Domain layer: entities, use cases, abstract repos
-│ ├── entities/
-│ ├── repositories/
-│ ├── usecases/
-│ └── services/
-├── presentation/ # UI layer: providers, screens, widgets
-│ ├── providers/
-│ ├── pages/
-│ └── widgets/
-└── main.dart # App entry point
+├── core/               # Constants, service locators, route configurations
+├── data/               # Data layer: models, datasources, repository impl
+│   ├── models/
+│   ├── datasources/
+│   ├── repositories/
+│   └── services/
+├── domain/             # Domain layer: entities, use cases, abstract repos
+│   ├── entities/
+│   ├── repositories/
+│   ├── usecases/
+│   └── services/
+├── presentation/       # UI layer: providers, screens, widgets
+│   ├── providers/
+│   ├── pages/
+│   └── widgets/
+└── main.dart           # App entry point
 
 
 ---
