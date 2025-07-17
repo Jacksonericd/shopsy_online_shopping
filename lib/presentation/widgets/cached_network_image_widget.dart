@@ -16,23 +16,26 @@ class CachedNetworkImageWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CachedNetworkImage(
-      imageUrl: imageUrl,
-      width: width,
-      height: height,
-      fit: BoxFit.contain,
-      placeholder: (context, url) => Shimmer(
-        duration: const Duration(seconds: 2),
-        interval: const Duration(seconds: 1),
-        color: Colors.white,
-        colorOpacity: 0,
-        enabled: true,
-        direction: const ShimmerDirection.fromLTRB(),  //Default Value
-        child: Container(
-          color: Colors.blueGrey,
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(15.0),
+      child: CachedNetworkImage(
+        imageUrl: imageUrl,
+        width: width,
+        height: height,
+        fit: BoxFit.contain,
+        placeholder: (context, url) => Shimmer(
+          duration: const Duration(seconds: 2),
+          interval: const Duration(seconds: 1),
+          color: Colors.white,
+          colorOpacity: 0,
+          enabled: true,
+          direction: const ShimmerDirection.fromLTRB(),  //Default Value
+          child: Container(
+            color: Colors.blueGrey,
+          ),
         ),
+        errorWidget: (context, url, error) => const Icon(Icons.error),
       ),
-      errorWidget: (context, url, error) => const Icon(Icons.error),
     );
   }
 }
