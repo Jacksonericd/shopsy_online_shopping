@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "productName": "Sneakers",
+    "price": 1299.0,
+    "imageUrl": "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
+    "description": "Comfortable daily wear shoes"
+  },
+  {
+    "id": 2,
+    "productName": "Blue T-Shirt",
+    "price": 599.0,
+    "imageUrl": "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
+    "description": "Soft cotton t-shirt in blue."
+  }
+]
