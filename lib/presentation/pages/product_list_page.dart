@@ -75,29 +75,10 @@ class _ProductListPage extends StatelessWidget {
 
     final products = provider.products;
 
-    if (deviceWidth > 768) {
-      return ListView.builder(
-        itemCount: products.length,
-        itemBuilder: (_, index) {
-          final product = products[index];
-
-          return ProductCard(
-            product: product,
-            onClicked: () {
-              sl<NavigationService>().navigateTo(
-                RouteConstants.productDetailView.path,
-                arguments: product,
-              );
-            },
-          );
-        },
-      );
-    }
-
     return GridView.builder(
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
-        childAspectRatio: 1,
+        childAspectRatio: deviceWidth > 768 ? 4 : 1,
         crossAxisSpacing: 10,
         mainAxisSpacing: 10,
       ),
